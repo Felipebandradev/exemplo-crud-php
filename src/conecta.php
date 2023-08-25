@@ -13,7 +13,7 @@ $banco = "vendas";
 /* Configurações para conexão (API/Driver de conexão: PDO (PHP Data Object))*/
 try{
 
-    // Instância/Objeto para conexão
+    // Instância/Objeto PDO para conexão
     $conexao = new PDO(
         "mysql:host=$servidor;dbname=$banco;cherset=utf8",
         $usuario,$senha
