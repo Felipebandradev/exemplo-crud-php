@@ -1,26 +1,15 @@
 <?php
+/* Obtendo de sanitizando o valor vindo da url  (link dinâmico) */
+$id = filter_input(INPUT_GET,"id", FILTER_SANITIZE_NUMBER_INT);
 
 
-if(isset($_POST['inserir'])){
-    require_once "../src/funcoes-fabricantes.php";
-    // capturando o valor digitado do nome e sanitizado
-    $nome = filter_input(INPUT_POST,"nome",FILTER_SANITIZE_SPECIAL_CHARS);
-    // Pode ser assim também:
-    // $nome = filter_var($_POST['nome'],FILTER_SANITIZE_SPECIAL_CHARS);
-
-    inserir_fabricantes($conexao, $nome);
-
-    /* Redirecionamento */
-    header("location:visualizar.php");
-    
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabricantes | INSERT</title>
+    <title>Fabricantes | Atualização</title>
 
     <style>
         body { 
@@ -39,10 +28,19 @@ p{
     padding: 2rem;
 }
 
+p a{
+   text-decoration: none; 
+   color:#642764;
+   background-color: #e0bcdd;
+   padding: 1rem;
+   border-radius: 15px;
+}
+
 form{
     width: 500px;
     margin: auto;
 }
+
 input[type=text] {
   width: 100%;
   padding: 12px 20px;
@@ -65,18 +63,13 @@ button {
   cursor: pointer;
   width: 100%;
 }
-p a{
-   text-decoration: none; 
-   color:#642764;
-   background-color: #e0bcdd;
-   padding: 1rem;
-   border-radius: 15px;
-}
+
+
     </style>
 </head>
 <body>
     <main>
-    <h1>Fabricantes | INSERT - <a href="../index.php">Home</a></h1>
+    <h1>Fabricantes | SELECT/UPDATE - <a href="../index.php">Home</a></h1>
     <hr>
 
     <form action="" method="post">
@@ -85,10 +78,10 @@ p a{
             <input type="text" name="nome" id="nome" required>
         </p>
 
-        <button type="submit" name="inserir">Inserir Fabricante</button>
+        <button type="submit" name="atualizar">atualizar Fabricante</button>
     </form>
 
-    <hr>
+    <hr> 
     <p><a href="visualizar.php">Voltar</a></p>
     </main>
 </body>
