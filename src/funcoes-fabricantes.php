@@ -68,6 +68,14 @@ function ler_um_fabricante(PDO $conexao, int $id_fabricante) {
 }; // fim ler um fabricante
 
 // Usada em fabricantes/atualizar.php
-
-
-// fim atualizar um fabricante
+function atualizar_fabricante(PDO $conexao, string $nome_do_fabricante, int $id_do_fabricante){
+    $sql = "UPDATE fabricantes SET nome = :nome WHERE id = :id" ;
+    try{
+    $consulta = $conexao->prepare($sql);
+    $consulta->bindValue(":nome",$nome_do_fabricante, PDO::PARAM_STR);
+    $consulta->bindValue(":id",$id_do_fabricante,PDO::PARAM_INT);
+    $consulta->execute();
+    } catch(Exception $erro){
+        die("Erro ao Alterar: ".$erro->getMessage());
+    }
+}; // fim atualizar um fabricante
