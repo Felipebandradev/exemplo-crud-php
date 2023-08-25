@@ -66,3 +66,8 @@ function ler_um_fabricante(PDO $conexao, int $id_fabricante) {
 
     return $resultado;
 }; // fim ler um fabricante
+
+// Usada em fabricantes/atualizar.php
+
+
+// fim atualizar um fabricante
