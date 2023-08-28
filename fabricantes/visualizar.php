@@ -109,12 +109,13 @@ caption {
                 <td><?=$fabricante["id"]?></td>
                 <td><?=$fabricante["nome"]?></td>
                 <td>
-                    <a href="atualizar.php?id=<?=$fabricante["id"]?>">Editar 🖋</a>
-                    <a href="deletar.php?id=<?=$fabricante["id"]?>">Excluir 🗑</a>
+                    <a  href="atualizar.php?id=<?=$fabricante["id"]?>">Editar 🖋</a>
+                    <a class="excluir" href="deletar.php?id=<?=$fabricante["id"]?>">Excluir 🗑</a>
                 </td>
             </tr>   
             <?php }?>
         </table>
     </main>
+    <script src="../js/confirma-exclusao.js"></script>
 </body>
 </html>
