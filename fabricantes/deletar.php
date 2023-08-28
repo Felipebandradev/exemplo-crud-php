@@ -5,11 +5,11 @@ $id = filter_input(INPUT_GET,"id", FILTER_SANITIZE_NUMBER_INT);
 
 $fabricante = ler_um_fabricante($conexao, $id);
 
-if (isset($_POST["atualizar"])){
-    $nome = filter_input(INPUT_POST,"nome",FILTER_SANITIZE_SPECIAL_CHARS);
-    atualizar_fabricante($conexao,$nome,$id);
+if (isset($_POST["deletar"])){
+    // $nome = filter_input(INPUT_POST,"nome",FILTER_SANITIZE_SPECIAL_CHARS);
+    deletar_fabricante($conexao,$id);
 
-    header("location:visualizar.php?status=sucesso");
+    header("location:visualizar.php");
 }
 
 ?>
@@ -80,17 +80,20 @@ button {
 </head>
 <body>
     <main>
-    <h1>Fabricantes | SELECT/UPDATE - <a href="../index.php">Home</a></h1>
+    <h1>Fabricantes | SELECT/DELETE - <a href="../index.php">Home</a></h1>
     <hr>
+
+    <h2>Tem certeza que deseja Excluir o fabricante abaixo?</h2>
+    <h2>Só pode ser apagado o fabricante que não tem produto !!</h2>
 
     <form action="" method="post">
         <input type="hidden" name="id" value="<?=$fabricante["id"]?>">
         <p>
             <label for="nome">Nome:</label>
-            <input value="<?=$fabricante["nome"]?>" type="text" name="nome" id="nome" required> 
+            <input value="<?=$fabricante["nome"]?>" type="text" name="nome" id="nome" disabled> 
         </p>
 
-        <button type="submit" name="atualizar">atualizar Fabricante</button>
+        <button type="submit" name="deletar">Deletar Fabricante</button>
     </form>
 
     <hr> 

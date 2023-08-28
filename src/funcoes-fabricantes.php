@@ -76,6 +76,18 @@ function atualizar_fabricante(PDO $conexao, string $nome_do_fabricante, int $id_
     $consulta->bindValue(":id",$id_do_fabricante,PDO::PARAM_INT);
     $consulta->execute();
     } catch(Exception $erro){
-        die("Erro ao Alterar: ".$erro->getMessage());
+        die("Erro ao Atualizar: ".$erro->getMessage());
     }
 }; // fim atualizar um fabricante
+
+function deletar_fabricante(PDO $conexao, int $id_fabricante){
+    $sql = "DELETE FROM fabricantes WHERE id = :id";
+
+    try {
+        $consulta = $conexao->prepare($sql);
+        $consulta->bindValue(":id",$id_fabricante,PDO::PARAM_INT);
+        $consulta->execute();
+    } catch (Exception $erro) {
+        die("Erro ao Deletar: ".$erro->getMessage());
+    }
+};

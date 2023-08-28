@@ -88,6 +88,10 @@ caption {
         <h2>Lendo e carregando todos os Fabricantes</h2>
 
         <p><a href="inserir.php">Inserir o Fabricante</a></p>
+
+        <?php if(isset($_GET["status"]) && $_GET["status"] === "sucesso") { ?>
+            <h2 style="color: aquamarine;"> Fabricante Atualizado com sucesso</h2>
+        <?php } ?>
         <table>
             <caption>Lista de Fabricantes: <?=$quantidade?></caption>
 
@@ -106,7 +110,7 @@ caption {
                 <td><?=$fabricante["nome"]?></td>
                 <td>
                     <a href="atualizar.php?id=<?=$fabricante["id"]?>">Editar 🖋</a>
-                    <a href="">Excluir 🗑</a>
+                    <a href="deletar.php?id=<?=$fabricante["id"]?>">Excluir 🗑</a>
                 </td>
             </tr>   
             <?php }?>
