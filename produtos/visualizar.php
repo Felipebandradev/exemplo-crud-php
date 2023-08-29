@@ -16,8 +16,9 @@
         }
 
         .produto{
-            /* width: 50%; */
-            background-color: #ff6961;
+            color: aliceblue;
+             width: 40%; 
+            background-color: #ab212e;
             border: 1px #3d761d solid;
             padding: 1rem;
         }
