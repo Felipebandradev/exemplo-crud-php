@@ -1,3 +1,11 @@
+<?php
+require_once "../src/funcoes-produtos.php";
+require_once "../src/funcoes-utilitarias.php";
+
+$lerprodutos = ler_produtos($conexao);
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +18,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 16px;
-            width: 90%;
+            width: 80%;
             margin: auto;
            
         }
@@ -21,6 +29,7 @@
             background-color: #ab212e;
             border: 1px #3d761d solid;
             padding: 1rem;
+            box-shadow: black 0 0 10px;
         }
     </style>
 </head>
@@ -33,20 +42,14 @@
         <p><a href="inserir.php">Inserir novo Produto</a></p>
 
         <section class="produtos">
-            
+            <?php foreach ($lerprodutos as $produtos){ ?>
+                
             <article class="produto">
-                <h3>Nome do Produto: ...</h3>
-                <p><b>Preço: </b>...</p>
-                <p><b>Quantidade: </b>...</p>
-            </article>
-
-            <article class="produto">
-                <h3>Nome do Produto: ...</h3>
-                <p><b>Preço: </b>...</p>
-                <p><b>Quantidade: </b>...</p>
-            </article>
-           
-
+                <h3><?=$produtos["nome"]?></h3>
+                <p><b>Preço: </b><?= formatar_preco($produtos["preco"])?></p>
+                <p><b>Quantidade: </b><?=$produtos["quantidade"]?></p>
+            </article>       
+            <?php }?>
         </section>
     </main>
 </body>
