@@ -25,7 +25,7 @@ $lerprodutos = ler_produtos($conexao);
 
         .produto{
             color: aliceblue;
-             width: 40%; 
+             width: 30%; 
             background-color: #ab212e;
             border: 1px #3d761d solid;
             padding: 1rem;
@@ -43,11 +43,13 @@ $lerprodutos = ler_produtos($conexao);
 
         <section class="produtos">
             <?php foreach ($lerprodutos as $produtos){ ?>
-                
+
             <article class="produto">
-                <h3><?=$produtos["nome"]?></h3>
+                <h3><?=$produtos["produto"]?></h3>
+                <h4><?=$produtos["fabricante"]?></h4>
                 <p><b>Preço: </b><?= formatar_preco($produtos["preco"])?></p>
                 <p><b>Quantidade: </b><?=$produtos["quantidade"]?></p>
+                <p><b>Valor total em estoque: </b><?=formatar_preco($produtos["total"])?></p>
             </article>       
             <?php }?>
         </section>
