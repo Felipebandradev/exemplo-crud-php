@@ -3,7 +3,7 @@
 require_once "conecta.php";
 
 // usada em fabricantes/visualizar.php
-function ler_fabricantes( PDO $conexao ){
+function ler_fabricantes( PDO $conexao ):array {
    $sql = "SELECT * FROM fabricantes ORDER BY nome";
 
    try {    
@@ -31,7 +31,7 @@ function ler_fabricantes( PDO $conexao ){
 
 
 // Usada em fabricantes/inserir.php
-function inserir_fabricantes(PDO $conexao, string $nome_do_fabricante){
+function inserir_fabricantes(PDO $conexao, string $nome_do_fabricante):void {
     /* :qualquercoisa -> isso indica um "named parameter"
     (parâmetro nomeado) */
     $sql = "INSERT INTO fabricantes(nome) VALUES (:nome)";
@@ -52,7 +52,7 @@ function inserir_fabricantes(PDO $conexao, string $nome_do_fabricante){
 
 
 // Usada em fabricantes/atualizar.php
-function ler_um_fabricante(PDO $conexao, int $id_fabricante) {
+function ler_um_fabricante(PDO $conexao, int $id_fabricante):array {
     $sql ="SELECT * FROM fabricantes WHERE id = :id";
 
     try {
@@ -68,7 +68,7 @@ function ler_um_fabricante(PDO $conexao, int $id_fabricante) {
 }; // fim ler um fabricante
 
 // Usada em fabricantes/atualizar.php
-function atualizar_fabricante(PDO $conexao, string $nome_do_fabricante, int $id_do_fabricante){
+function atualizar_fabricante(PDO $conexao, string $nome_do_fabricante, int $id_do_fabricante) :void{
     $sql = "UPDATE fabricantes SET nome = :nome WHERE id = :id" ;
     try{
     $consulta = $conexao->prepare($sql);
@@ -80,7 +80,7 @@ function atualizar_fabricante(PDO $conexao, string $nome_do_fabricante, int $id_
     }
 }; // fim atualizar um fabricante
 
-function deletar_fabricante(PDO $conexao, int $id_fabricante){
+function deletar_fabricante(PDO $conexao, int $id_fabricante):void{
     $sql = "DELETE FROM fabricantes WHERE id = :id";
 
     try {
