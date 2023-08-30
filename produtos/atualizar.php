@@ -49,13 +49,14 @@ $lerfabricante = ler_fabricantes($conexao);
                 <label for="fabricante"  class="form-label">Fabricante</label>
                 <select name="fabricante" id="fabricante" class="form-select" >
                     <option value=""></option>
-                    <?php foreach($lerfabricante as $fabricante){ 
-                        if($produto["fabricante_id"] === $fabricante["id"]){
+                    <?php 
+                        foreach($lerfabricante as $fabricante){ 
                     ?>
-                        <option value="<?=$fabricante["id"]?>" selected><?=$fabricante["nome"]?></option>
-                    <?php } else{?>
-                        <option value="<?=$fabricante["id"]?>"><?=$fabricante["nome"]?></option>
-                    <?php }}?>
+                     <option <?php if($produto["fabricante_id"] === $fabricante["id"]){ ?> selected <?php } ?> value="<?=$fabricante["id"]?>"> 
+                    <?=$fabricante["nome"]?>
+                    </option>
+                    <?php } ?>
+                   
                 </select>
             </p>
         </div>
