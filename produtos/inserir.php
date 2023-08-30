@@ -3,6 +3,31 @@ require_once "../src/funcoes-fabricantes.php";
 require_once "../src/funcoes-produtos.php";
 
 $lerfabricante = ler_fabricantes($conexao);
+
+if(isset($_POST['inserir'])){
+    $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
+    $preco = filter_input(
+        INPUT_POST, "preco",
+        FILTER_SANITIZE_NUMBER_FLOAT,
+        FILTER_FLAG_ALLOW_FRACTION
+    );
+
+    $quantidade = filter_input(INPUT_POST, "quantidade", FILTER_SANITIZE_NUMBER_INT);
+
+    // Pegaremos o Value, ou seja, o valor do id do fabricante
+    $fabricanteid = filter_input(INPUT_POST, "fabricante", FILTER_SANITIZE_NUMBER_INT);
+
+    $descricao = filter_input(INPUT_POST, "descricao", FILTER_SANITIZE_SPECIAL_CHARS);
+
+    // Teste
+    //echo $nome, $preco, $quantidade, $fabricanteid, $descricao;
+
+    inserirProduto(
+        $conexao, $nome, $preco, $quantidade, $fabricanteid, $descricao
+    );
+
+    header("location:visualizar.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
