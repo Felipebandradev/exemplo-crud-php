@@ -1,0 +1,99 @@
+.produtos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 80%;
+    margin: auto;
+   
+}
+
+.produto h3{
+    color: black;
+}
+
+.card-header{
+    background-color: #ffe214;
+}
+
+
+h1{
+
+    color:#fff; 
+    background: var(--gradient);
+    padding: 3rem;
+}
+
+h5{
+    font-size: 2rem;
+  
+}
+
+
+
+h1 a{
+    color:#ffdee1;
+}
+
+.card-title{
+    color: #ffdee1;
+}
+p a{
+    margin-top: 1.1rem;
+}
+
+
+:root {
+    --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
+  }
+  
+          body {
+          background: #111 !important;
+          }
+  
+          .card {
+          background: #222;
+          border: 1px solid #dd2476;
+          color: rgba(250, 250, 250, 0.8);
+          margin-bottom: 2rem;
+          }
+  
+          .btn {
+          border: 5px solid;
+          border-image-slice: 1;
+          background: var(--gradient) !important;
+          -webkit-background-clip: text !important;
+          -webkit-text-fill-color: transparent !important;
+          border-image-source:  var(--gradient) !important; 
+          text-decoration: none;
+          transition: all .4s ease;
+          }
+  
+          .btn:hover, .btn:focus {
+              background: var(--gradient) !important;
+          -webkit-background-clip: none !important;
+          -webkit-text-fill-color: #fff !important;
+          border: 5px solid #fff !important; 
+          box-shadow: #222 1px 0 10px;
+          text-decoration: underline;
+          text-decoration: none;
+          }
+          h1{
+              color:#fff; 
+              background: var(--gradient);
+              padding: 3rem;
+          }
+          h1 a{
+              color:#ffdee1;
+          }
+          
+          label{
+              color: #fff;  
+          }
+  
+          form{
+              background-color: #222;
+              border: 1px solid #dd2476;
+          }
+
+
+         

@@ -37,45 +37,7 @@ if(isset($_POST['inserir'])){
     <title>Produtos | INSERT</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">   
-    <style>
-
-        body{
-            background-color: #ac222f;
-            color: #fff;
-        }
-        h1{
-
-            color:#fff; 
-            background-color: #3d761d;
-            padding: 3rem;
-        }
-
-        h1 a{
-            color:#ffdee1;
-        }
-
-        fieldset{
-            border: 3px solid #f35070;
-            border-radius: 25px;
-            background-color: #ffdee1;
-        }
-        
-        .link{
-            margin: auto;
-            text-align: center;
-        }
-
-        p a{
-            border: 3px solid #f35070;
-            font-size: 1.2rem;
-            padding: 1rem;
-            border-radius: 20px;
-            color:#fff;
-            background-color: #f35070;
-            text-decoration: none;
-        }
-
-        </style>
+     <link rel="stylesheet" href="../css/estilos.css">
 
 </head>
 <body>
@@ -122,9 +84,9 @@ if(isset($_POST['inserir'])){
         </p>
         <button type="submit" name="inserir" class="btn btn-primary">Inserir Produto</button>
         
-        
+        <p ><a href="visualizar.php" class="btn">Voltar</a></p>
     </form>
-    <p class="link"><a href="visualizar.php">Voltar</a></p>
+    
     
     </main>
 </body>

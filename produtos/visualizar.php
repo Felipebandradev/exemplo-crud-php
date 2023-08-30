@@ -14,56 +14,33 @@ $lerprodutos = ler_produtos($conexao);
     <title>Produtos - Visualização</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  
-
-    <style>
-        .produtos{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            width: 80%;
-            margin: auto;
-           
-        }
-/* #,ea6354,#3d761d */
-        .produto{
-            color: aliceblue;
-             width: 30%; 
-            background-color: #ab212e ;
-            border: 1px #3d761d solid;
-            padding: 1rem;
-            box-shadow: black 0 0 10px;
-        }
-
-        .produto h3{
-            color: black;
-        }
-
-        .card-header{
-            background-color: #ffe214;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
     <main>
-        <h1>Produtos | SELECT - <a href="../index.php">Home</a></h1>
+        <h1 class="text-center">Produtos | SELECT - <a href="../index.php">Home</a></h1>
         <hr>
-        <h2>Lendo e carregando todos os Produtos</h2>
+        <h5 class="card-title text-center">Lendo e carregando todos os Produtos</h5>
 
-        <p><a href="inserir.php">Inserir novo Produto</a></p>
+        <p class="text-center"><a href="inserir.php" class="btn ">Inserir novo Produto</a></p>
 
-        <section class="produtos">
+        <section class="produtos  container mx-auto mt-4 row">
             <?php foreach ($lerprodutos as $produtos){ ?>
 
-            <article class="produto card">
-                <div class="card-header">
-                    <h3><?=$produtos["produto"]?></h3>
-                </div>
+            <article class="produto card card-body " style="width: 20rem;">
+            
+                    <h5 class="card-title"><?=$produtos["produto"]?></h5>
+                
                     <h4><?=$produtos["fabricante"]?></h4>
                 
-                <p><b>Preço: </b><?= formatar_preco($produtos["preco"])?></p>
-                <p><b>Quantidade: </b><?=$produtos["quantidade"]?></p>
-                <p><b>Valor total em estoque: </b><?=formatar_preco($produtos["total"])?></p>
-                <p><b>Descrição: </b><?=$produtos["descricao"]?></p>
+                <div class="card-text">
+                    <p><b>Preço: </b><?= formatar_preco($produtos["preco"])?></p>
+                    <p><b>Quantidade: </b><?=$produtos["quantidade"]?></p>
+                    <p><b>Valor total em estoque: </b><?=formatar_preco($produtos["total"])?></p>
+                    <p><b>Descrição: </b><?=$produtos["descricao"]?></p>
+                     <hr>
+                </div>
+                <p ><a href="atualizar.php?id=<?=$produtos["id"]?>" class="btn">Editar 🖊</a> <a href="excluir.php?id=<?=$produtos["id"]?>" class="btn">Exlcluir 🗑</a></p>
             </article>       
             <?php }?>
         </section>
