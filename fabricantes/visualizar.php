@@ -13,92 +13,28 @@ $quantidade = count($lista_de_fabricantes);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabricantes - Visualização</title>
-
-    <style>
-
-body { 
-    font-family: monospace;
-    background-color: #9966cc;
-}
-
-
-h1, h2, h1 a{
-    color: #f0ddee;
-    text-align: center;
-}
-
-p{
-    text-align: center;
-    font-size: 1rem; 
-    padding: 2rem;
-}
-
-td a{
-    color:darkviolet;
-    text-decoration: none;
-}
-td a:hover{
-    color:mediumorchid;
-    text-decoration: none;
-}
-p a{
-   text-decoration: none; 
-   color:#642764;
-   background-color: #e0bcdd;
-   padding: 2rem;
-   border-radius: 15px;
-}
-
-tr:nth-child(odd){
-    color: #7e2d7e;
-    background-color:#e0bcdd;
-}    
-
-tr:nth-child(even){ 
-    color: #642764;   
-    background-color: #f0ddee;
-}
-
-table {
-    width: 50%;
-    margin: auto;
-}
-
-tr, caption, h2 {
-    text-align: center;
-    font-size: 2rem;
-}
-
-thead tr th{
-    color: honeydew;
-    background-color: #ac58aa;
-} 
-caption {
-    border-top-left-radius: 51px  ;
-    border-top-right-radius: 51px  ;
-    color:white;
-    background-color: #993399;
-}
-</style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
     <main>
-        <h1>Fabricantes | SELECT - <a href="../index.php">Home</a></h1>
+        <h1 class="text-center">Fabricantes | SELECT - <a href="../index.php">Home</a></h1>
         <hr>
-        <h2>Lendo e carregando todos os Fabricantes</h2>
+        <h2 class="card-title text-center">Lendo e carregando todos os Fabricantes</h2>
 
-        <p><a href="inserir.php">Inserir o Fabricante</a></p>
+        <p class="text-center"><a class="btn" href="inserir.php">Inserir o Fabricante</a></p>
 
         <?php if(isset($_GET["status"]) && $_GET["status"] === "sucesso") { ?>
             <h2 style="color: aquamarine;"> Fabricante Atualizado com sucesso</h2>
         <?php } ?>
-        <table>
-            <caption>Lista de Fabricantes: <?=$quantidade?></caption>
+        
+            <h2 class="text-center card-title listasdefab">Lista de Fabricantes: <?=$quantidade?></h2>
 
+        <table class=" table  table-dark table-striped tabela table-hover text-center">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
+                    <th >Id</th>
+                    <th >Nome</th>
                     <th >Operações</th>
                 </tr>
             </thead>
@@ -109,8 +45,8 @@ caption {
                 <td><?=$fabricante["id"]?></td>
                 <td><?=$fabricante["nome"]?></td>
                 <td>
-                    <a  href="atualizar.php?id=<?=$fabricante["id"]?>">Editar 🖋</a>
-                    <a class="excluir" href="deletar.php?id=<?=$fabricante["id"]?>">Excluir 🗑</a>
+                    <a  href="atualizar.php?id=<?=$fabricante["id"]?>" class="btn">Editar 🖋</a>
+                    <a class="excluir btn" href="deletar.php?id=<?=$fabricante["id"]?>" >Excluir 🗑</a>
                 </td>
             </tr>   
             <?php }?>

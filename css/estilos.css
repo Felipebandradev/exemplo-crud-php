@@ -47,7 +47,7 @@ p a{
   }
   
           body {
-          background: #111 !important;
+            background: #111 !important;
           }
   
           .card {
@@ -95,5 +95,23 @@ p a{
               border: 1px solid #dd2476;
           }
 
+        .tabela {
+            width: 50%;
+            margin: auto;
+        }
+        
+        tr, legend, h2 {
+            font-size: 2rem;
+        }
 
-         
+        
+
+        thead tr th{
+            background: var(--gradient);
+        } 
+        /* caption {
+            border-top-left-radius: 51px  ;
+            border-top-right-radius: 51px  ;
+            color:white;
+            background-color: #993399;
+        } */
