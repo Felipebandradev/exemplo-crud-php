@@ -24,62 +24,6 @@ if (isset($_POST["atualizar"])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  
     <link rel="stylesheet" href="../css/estilos.css">
 
-    <!-- <style>
-                body { 
-            font-family: monospace;
-            background-color: #9966cc;
-        }
-
-
-        h1, h2, h1 a{
-            color: #f0ddee;
-            text-align: center;
-        }
-
-        p{
-            font-size: 1rem; 
-            padding: 2rem;
-        }
-
-        p a{
-        text-decoration: none; 
-        color:#642764;
-        background-color: #e0bcdd;
-        padding: 1rem;
-        border-radius: 15px;
-        }
-
-        form{
-            width: 500px;
-            margin: auto;
-            
-        }
-
-        input[type=text] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        }
-
-        label{
-            color: #f0ddee;
-            font-size: 2rem;
-        }
-
-        button {
-        background-color: #e0bcdd;
-        border: none;
-        color: #642764;
-        padding: 16px 32px;
-        text-decoration: none;
-        margin: 4px 2px;
-        cursor: pointer;
-        width: 100%;
-        }
-
-
-    </style> -->
 </head>
 <body>
     <main>

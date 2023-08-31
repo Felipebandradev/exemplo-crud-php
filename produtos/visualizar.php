@@ -24,6 +24,11 @@ $lerprodutos = ler_produtos($conexao);
 
         <p class="text-center"><a href="inserir.php" class="btn ">Inserir novo Produto</a></p>
 
+        <?php if(isset($_GET["status"]) && $_GET["status"] === "sucesso") { ?>
+            <h2 style="color: aquamarine;" class="text-center"> Fabricante Atualizado com sucesso</h2>
+        <?php } ?>
+        
+
         <section class="produtos  container mx-auto mt-4 row">
             <?php foreach ($lerprodutos as $produtos){ ?>
 
@@ -40,10 +45,14 @@ $lerprodutos = ler_produtos($conexao);
                     <p><b>Descrição: </b><?=$produtos["descricao"]?></p>
                      <hr>
                 </div>
-                <p ><a href="atualizar.php?id=<?=$produtos["id"]?>" class="btn">Editar 🖊</a> <a href="excluir.php?id=<?=$produtos["id"]?>" class="btn">Exlcluir 🗑</a></p>
+                <p>
+                    <a href="atualizar.php?id=<?=$produtos["id"]?>" class="btn">Editar 🖊</a>
+                     <a href="excluir.php?id=<?=$produtos["id"]?>" class="excluir btn">Exlcluir 🗑</a>
+                </p>
             </article>       
             <?php }?>
         </section>
-    </main>
+    </main>]
+    <script src="../js/confirma-exclusao.js"></script>
 </body>
 </html>

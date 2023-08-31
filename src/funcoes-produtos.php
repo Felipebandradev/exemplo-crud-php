@@ -63,3 +63,49 @@ function inserirProduto(
 
     return $resultado;
   }
+
+  function atualizar_produto(
+    PDO $conexao, 
+    int $id ,
+    string $nome, 
+    float $preco, 
+    int $quantidade, 
+    string $descricao, 
+    int $fabricanteid
+  ) :void {
+         $sql = "UPDATE produtos SET 
+                  nome = :nome, 
+                  preco = :preco,
+                  quantidade = :quantidade,
+                  descricao = :descricao,
+                  fabricante_id = :fabricante
+                  WHERE id = :id";
+
+        try {
+           $query = $conexao->prepare($sql);
+
+           $query->bindValue(":id",$id, PDO::PARAM_INT);
+           $query->bindValue(":nome",$nome, PDO::PARAM_STR);
+           $query->bindValue(":preco",$preco, PDO::PARAM_STR);
+           $query->bindValue(":quantidade",$quantidade, PDO::PARAM_INT);
+           $query->bindValue(":descricao",$descricao, PDO::PARAM_STR);
+           $query->bindValue(":fabricante",$fabricanteid, PDO::PARAM_INT);
+
+           $query->execute();
+
+          } catch (Exception $erro) {
+            die("Erro ao atualizar: ".$erro->getMessage());
+          }
+  }
+
+  function excluir_produto(PDO $conexao, int $id){
+      $sql = "DELETE FROM produtos WHERE id = :id";
+
+      try{
+          $query = $conexao->prepare($sql);
+          $query->bindValue(":id", $id, PDO::PARAM_INT);
+          $query->execute();
+      } catch (Exception $erro) {
+        die("Erro ao deletar: ".$erro->getMessage());
+      }
+  }

@@ -25,7 +25,7 @@ $quantidade = count($lista_de_fabricantes);
         <p class="text-center"><a class="btn" href="inserir.php">Inserir o Fabricante</a></p>
 
         <?php if(isset($_GET["status"]) && $_GET["status"] === "sucesso") { ?>
-            <h2 style="color: aquamarine;"> Fabricante Atualizado com sucesso</h2>
+            <h2 style="color: aquamarine;" class="text-center"> Fabricante Atualizado com sucesso</h2>
         <?php } ?>
         
             <h2 class="text-center card-title listasdefab">Lista de Fabricantes: <?=$quantidade?></h2>

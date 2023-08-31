@@ -6,6 +6,30 @@ $id = filter_input(INPUT_GET,"id",FILTER_SANITIZE_NUMBER_INT);
 $produto =ler_um_produto($conexao,$id);
 
 $lerfabricante = ler_fabricantes($conexao);
+
+if(isset($_POST['atualizar'])){
+    $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
+    
+    $preco = filter_input(
+        INPUT_POST, "preco",
+        FILTER_SANITIZE_NUMBER_FLOAT,
+        FILTER_FLAG_ALLOW_FRACTION
+    );
+
+    $quantidade = filter_input(INPUT_POST, "quantidade", FILTER_SANITIZE_NUMBER_INT);
+
+    $fabricanteid = filter_input(INPUT_POST, "fabricante", FILTER_SANITIZE_NUMBER_INT);
+
+    $descricao = filter_input(INPUT_POST, "descricao", FILTER_SANITIZE_SPECIAL_CHARS);
+
+    atualizar_produto(
+        $conexao,$id, $nome,
+         $preco, $quantidade, 
+         $descricao ,$fabricanteid
+    );
+
+    header("location:visualizar.php?status=sucesso");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -52,8 +76,13 @@ $lerfabricante = ler_fabricantes($conexao);
                     <?php 
                         foreach($lerfabricante as $fabricante){ 
                     ?>
-                     <option <?php if($produto["fabricante_id"] === $fabricante["id"]){ ?> selected <?php } ?> value="<?=$fabricante["id"]?>"> 
-                    <?=$fabricante["nome"]?>
+                     <option
+                     <?php 
+                         if($produto["fabricante_id"] === $fabricante["id"]){ ?> 
+                             selected 
+                        <?php } ?> 
+                     value="<?=$fabricante["id"]?>"> 
+                        <?=$fabricante["nome"]?>
                     </option>
                     <?php } ?>
                    
@@ -64,12 +93,12 @@ $lerfabricante = ler_fabricantes($conexao);
             <label for="descricao"  class="form-label">Descrição: </label><br>
             <textarea name="descricao" id="descricao" cols="30" rows="10" class="form-control"  ><?=$produto["descricao"]?></textarea>
         </p>
-        <button type="submit" name="inserir" class="btn btn-primary">Atualizar Produto 🖋</button>
+        <button type="submit" name="atualizar" class="btn btn-primary">Atualizar Produto 🖋</button>
         
         <p><a href="visualizar.php" class="btn">Voltar 	&#9756;</a></p>
     </form>
     
     
-    </main>
+  </main>
 </body>
 </html>
